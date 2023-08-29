@@ -1,4 +1,4 @@
---Cleaning Data in SQL Queries
+--Cleaning Publically Available Nashville Housing Data in SQL Queries
 
 Select * 
 From NashvillePortfolioProject.dbo.NashvilleHousing
