@@ -54,16 +54,16 @@ pipeline = Pipeline(steps=[
 ])
 
 param_grid = [{
-    "model":[LinearSVC(class_weight="balanced",random_state=1)],
+    "model":[LinearSVC(class_weight="balanced",random_state=44)],
     "model__C":[0.1,1,10]},
 {
-    "model":[RandomForestClassifier(random_state=1)],
+    "model":[RandomForestClassifier(class_weight="balanced", random_state = 44)],
     "model__n_estimators":[10,50,100]},
 {
-    "model":[LogisticRegression(random_state=1)],
+    "model":[LogisticRegression(class_weight="balanced",random_state=44)],
     "model__C":[0.1,1,10]},
 {
-    "model":[SVC(random_state=1)],
+    "model":[SVC(class_weight="balanced",random_state=44)],
     "model__C":[0.1,1,10]}
 ]
 
@@ -81,7 +81,8 @@ Search.fit(X_train, y_train)
 
 #Best model parameters
 print(Search.best_params_)
+#output: {'model__C': 1, 'model': LinearSVC(class_weight='balanced', random_state=44)}
 
 #Best cross validation score
 print(Search.best_score_)
-
+#output: 0.95
